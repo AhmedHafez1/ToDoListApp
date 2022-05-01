@@ -1,0 +1,27 @@
+<div class="details">
+  <div class="details__title">
+    {{ todo?.title }}
+  </div>
+  <div class="details__description">
+    {{ todo?.description }}
+  </div>
+  <div class="details__state" [class.details__state--done]="todo?.state">
+    {{ todo?.state ? "Done" : "Pending" }}
+  </div>
+  <div
+    class="details__periority"
+    [ngClass]="{
+      'details__periority--low': todo?.periority === periority.Low,
+      'details__periority--high': todo?.periority === periority.High
+    }"
+  >
+    {{ todo?.periority }}
+  </div>
+  <div class="details__group">
+    {{ todo?.group }}
+  </div>
+
+  <div class="details__date">
+    {{ todo?.date | date: "dd/MM/YYYY" }}
+  </div>
+</div>

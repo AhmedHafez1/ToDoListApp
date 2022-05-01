@@ -1,0 +1,75 @@
+<header>
+  <button mat-flat-button class="btn-new" (click)="openAddNewTodo()">
+    <img src="assets/icons/plus-button.svg" />
+    <span>New Task</span>
+  </button>
+</header>
+
+<section class="filter-wrapper">
+  <h2 class="filter-label">Filter By</h2>
+  <app-main-filter></app-main-filter>
+</section>
+
+<section class="actions">
+  <button
+    mat-flat-button
+    class="actions__btn actions__btn--done"
+    [ngClass]="{ 'actions__btn--done--selected': selectedTodos.length > 0 }"
+    [disabled]="selectedTodos.length === 0"
+    (click)="onDone(selectedTodos);"
+  >
+    <img src="assets/icons/tick-1.svg" />
+    <span>Done</span>
+  </button>
+  <button
+    mat-flat-button
+    class="actions__btn actions__btn--deleted"
+    [ngClass]="{ 'actions__btn--deleted--selected': selectedTodos.length > 0 }"
+    [disabled]="selectedTodos.length === 0"
+    (click)="onDelete(selectedTodos)"
+  >
+    <img src="assets/icons/delete-1.svg" />
+    <span>Delete Selected</span>
+  </button>
+  <div class="spacer"></div>
+</section>
+
+<ng-template
+  [ngTemplateOutlet]="todoList"
+  [ngTemplateOutletContext]="{
+    inputList: toDoListGroup_1,
+    inputGroup: groups[1]
+  }"
+>
+</ng-template>
+<ng-template
+  [ngTemplateOutlet]="todoList"
+  [ngTemplateOutletContext]="{
+    inputList: toDoListGroup_2,
+    inputGroup: groups[2]
+  }"
+>
+</ng-template>
+<ng-template
+  [ngTemplateOutlet]="todoList"
+  [ngTemplateOutletContext]="{
+    inputList: toDoListGroup_3,
+    inputGroup: groups[3]
+  }"
+>
+</ng-template>
+
+<ng-template #todoList let-list="inputList" let-group="inputGroup">
+  <section *ngIf="list.length > 0" class="group">
+    <div class="group-label">{{ group }}</div>
+    <ng-container *ngFor="let todo of list; let i = index">
+      <app-todo-item
+        *ngIf="!todo.deleted || showDeleted"
+        [todo]="todo"
+        (selectionToggle)="onSelectionChange($event, todo)"
+        (doneAction)="onDone([$event])"
+        (deleteAction)="onDelete([$event])"
+      ></app-todo-item>
+    </ng-container>
+  </section>
+</ng-template>

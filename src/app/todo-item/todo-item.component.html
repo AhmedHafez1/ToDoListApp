@@ -1,0 +1,37 @@
+<div
+  class="todo"
+  [class.todo--done]="todo?.state === state.Done"
+  (click)="openDetails()"
+
+>
+  <div class="todo__checkBox">
+    <mat-checkbox
+      color="primary"
+      (change)="onCheckBoxToggle($event.checked)"
+      appStopPropagation
+      [(ngModel)]="todo.selected"
+    >
+      {{ todo?.title }}</mat-checkbox
+    >
+  </div>
+  <div class="todo__date">
+    {{ todo.date | date: "dd/MM/YYYY" }}
+  </div>
+  <div class="spacer"></div>
+  <button
+    mat-icon-button
+    class="todo__btn todo__btn--delete"
+    (click)="onDelete()"
+    appStopPropagation
+  >
+    <img src="assets/icons/delete-1.svg" />
+  </button>
+  <button
+    mat-icon-button
+    class="todo__btn todo__btn--check"
+    (click)="onDone()"
+    appStopPropagation
+  >
+    <img src="assets/icons/tick-1.svg" />
+  </button>
+</div>

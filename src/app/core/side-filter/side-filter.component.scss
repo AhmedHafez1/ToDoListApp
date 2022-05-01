@@ -1,0 +1,66 @@
+@import "./../../../styles/variables";
+.side-filter {
+  width: 292px;
+  display: flex;
+  flex-direction: column;
+
+  &__item {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+      background-color: #f2f2f2;
+    }
+    &:active {
+      background-color: #e1e1e1;
+    }
+
+    &--group {
+      h3 {
+        color: #2984a4;
+      }
+    }
+  }
+
+  &__name {
+    margin: 0 20px;
+    font-size: 18px;
+  }
+
+  &__img-wrapper {
+    width: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__user {
+    padding: 20px;
+    background-color: $color-bg-light-2;
+    display: flex;
+    align-items: center;
+  }
+
+  &__user-img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+
+  &__user-name {
+    margin: 0 10px;
+    font-size: 18px;
+  }
+}
+
+.mat-expansion-panel:not([class*="mat-elevation-z"]) {
+  background-color: $color-bg-light-2;
+  box-shadow: none;
+  border-radius: none;
+}
+
+.mat-expansion-panel-header.mat-expanded {
+  height: 48px;
+}

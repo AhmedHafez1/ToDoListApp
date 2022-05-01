@@ -1,0 +1,76 @@
+@import "./../../styles/variables";
+
+header {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: -28px;
+
+  .btn-new {
+    background-color: #183c5b;
+    color: $color-bg-light;
+    font-size: 18px;
+    border-radius: 5px;
+    img {
+      margin-right: 10px;
+    }
+  }
+}
+
+.filter-wrapper {
+  margin-bottom: 25px;
+  .filter-label {
+    color: $color-bg-light;
+    margin-bottom: 9px;
+    font-size: 18px;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: -36px;
+
+  &__btn {
+    background-color: #949494;
+    color: $color-bg-light;
+    font-size: 17px;
+    border-radius: 5px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-right: 10px;
+    }
+
+    &--done {
+      &--selected {
+        background-color: #86e0a4;
+      }
+    }
+
+    &--deleted {
+      margin-right: 10px;
+
+      &--selected {
+        background-color: #ff9c9c;
+      }
+    }
+  }
+}
+
+.group-label {
+  background-color: $color-primary-dark-2;
+  padding: 8px 15px;
+  width: 107px;
+  font-size: 18px;
+  font-weight: 500;
+  color: $color-bg-light;
+  opacity: 0.8;
+  border-radius: 3px;
+  margin-bottom: 15px;
+}
+
+.group {
+  padding-bottom: 1.5rem;
+}

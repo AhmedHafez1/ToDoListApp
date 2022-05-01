@@ -1,0 +1,21 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.main-filter {
+@include template-container;
+  &__item {
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px;
+
+    &--group {
+      flex: 1 0 auto;
+      margin-right: 0;
+    }
+
+    label {
+      font-size: 18px;
+      font-weight: normal;
+    }
+  }
+}

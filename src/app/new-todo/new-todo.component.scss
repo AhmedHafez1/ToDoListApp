@@ -1,0 +1,74 @@
+@import "./../../styles/mixins";
+@import "./../../styles/variables";
+
+.new-todo {
+  @include template-container;
+
+  width: 500px;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  box-shadow: 0 1px 7px rgba($color: #000000, $alpha: 0.5);
+  opacity: 0.8;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 1.2;
+    color: $color-primary-dark-1;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0 1.2rem;
+
+    &--group {
+      flex: 1 0 auto;
+      margin-right: 0;
+    }
+
+    label {
+      font-size: 17px;
+      font-weight: normal;
+      color: $color-primary-dark-1;
+    }
+  }
+  &__radio-g {
+    margin: 5px 0;
+  }
+  &__radio-b {
+    margin-right: 25px;
+  }
+
+  &__actions {
+    display: flex;
+    width: 100%;
+    padding: 1.2rem;
+    margin-top: 0.7rem;
+  }
+
+  &__btn {
+    flex: 1 auto;
+    color: #fff;
+    &:not(:last-of-type) {
+      margin-right: 1.5rem;
+    }
+
+    &--add {
+      background-color: $color-primary-dark-1;
+    }
+
+    &--clear {
+      background-color: #f2f2f2;
+      color: darkred;
+    }
+
+    &--back {
+      background-color: #f2f2f2;
+      color: $color-primary-dark-1;
+    }
+  }
+}

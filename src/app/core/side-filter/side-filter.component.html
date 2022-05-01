@@ -1,0 +1,64 @@
+<div class="side-filter">
+  <div class="side-filter__user">
+    <img src="assets/images/profile-pic.jpg" class="side-filter__user-img" />
+
+    <h3 class="side-filter__user-name">John Doe</h3>
+  </div>
+  <div class="side-filter__item" (click)="navigateToHome()">
+    <span class="side-filter__img-wrapper">
+      <img src="assets/icons/home.svg" class="side-filter__img" />
+    </span>
+    <h3 class="side-filter__name">Home</h3>
+  </div>
+  <div class="side-filter__item" (click)="getAllTodos()">
+    <span class="side-filter__img-wrapper">
+      <img src="assets/icons/list.svg" class="side-filter__img" />
+    </span>
+    <h3 class="side-filter__name">All</h3>
+  </div>
+  <div class="side-filter__item" (click)="getTodayTodos()">
+    <span class="side-filter__img-wrapper">
+      <img src="assets/icons/calendar.svg" class="side-filter__img" />
+    </span>
+    <h3 class="side-filter__name">Today</h3>
+  </div>
+  <div class="side-filter__item" (click)="getWeekTodos()">
+    <span class="side-filter__img-wrapper">
+      <img src="assets/icons/calendar-1.svg" class="side-filter__img" />
+    </span>
+
+    <h3 class="side-filter__name">Week</h3>
+  </div>
+  <div class="side-filter__item" (click)="getDoneTodos()">
+    <span class="side-filter__img-wrapper">
+      <img src="assets/icons/check.svg" class="side-filter__img" />
+    </span>
+    <h3 class="side-filter__name">Done</h3>
+  </div>
+  <div class="side-filter__item" (click)="getDletedTodos()">
+    <span class="side-filter__img-wrapper">
+      <img src="assets/icons/delete.svg" class="side-filter__img" />
+    </span>
+    <h3 class="side-filter__name">Deleted</h3>
+  </div>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <span class="side-filter__img-wrapper">
+        <img
+          src="assets/icons/folder-white-shape.svg"
+          class="side-filter__img"
+        />
+      </span>
+      <h3 class="side-filter__name">Groups</h3>
+    </mat-expansion-panel-header>
+    <div class="side-filter__item side-filter__item--group" (click)="getTodosByGroup(groups[1])">
+      <h3 class="side-filter__name">Group 1</h3>
+    </div>
+    <div class="side-filter__item side-filter__item--group" (click)="getTodosByGroup(groups[2])">
+      <h3 class="side-filter__name">Group 2</h3>
+    </div>
+    <div class="side-filter__item side-filter__item--group" (click)="getTodosByGroup(groups[3])">
+      <h3 class="side-filter__name">Group 3</h3>
+    </div>
+  </mat-expansion-panel>
+</div>

@@ -1,0 +1,87 @@
+<form [formGroup]="todoForm" class="new-todo">
+  <h2>New Todo</h2>
+  <!-- Title -->
+  <div class="new-todo__item">
+    <label>Title</label>
+    <mat-form-field appearance="outline">
+      <input matInput formControlName="title" />
+    </mat-form-field>
+  </div>
+  <!-- Description -->
+  <div class="new-todo__item">
+    <label for="title">Description</label>
+    <mat-form-field appearance="outline">
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+  </div>
+
+  <!-- Periority -->
+  <div class="new-todo__item">
+    <label>Periority</label>
+    <mat-radio-group
+      color="primary"
+      class="new-todo__radio-g"
+      formControlName="periority"
+    >
+      <mat-radio-button
+        class="new-todo__radio-b"
+        *ngFor="let periority of periorities"
+        [value]="periority"
+        >{{ periority }}</mat-radio-button
+      >
+    </mat-radio-group>
+  </div>
+
+  <!-- Date -->
+  <div class="new-todo__item">
+    <label>Date</label>
+    <mat-form-field appearance="outline">
+      <input matInput [matDatepicker]="picker" formControlName="delivery" />
+      <mat-datepicker-toggle matSuffix [for]="picker">
+        <svg class="cal-icon" matDatepickerToggleIcon>
+          <use xlink:href="assets/icons/sprite.svg#icon-calendar"></use>
+        </svg>
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <!-- Group -->
+  <div class="new-todo__item">
+    <label>Group</label>
+    <mat-form-field appearance="outline">
+      <mat-select formControlName="group">
+        <mat-option *ngFor="let group of groups" [value]="group">
+          {{ group }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <footer class="new-todo__actions">
+    <button
+      mat-flat-button
+      class="new-todo__btn new-todo__btn--add"
+      type="submit"
+      [disabled]="todoForm.invalid"
+      (click)="addTodo()"
+    >
+      Add
+    </button>
+    <button
+      mat-flat-button
+      class="new-todo__btn new-todo__btn--clear"
+      type="button"
+      (click)="reset()"
+    >
+      Clear
+    </button>
+    <button
+      mat-flat-button
+      class="new-todo__btn new-todo__btn--back"
+      type="button"
+      routerLink="/list"
+    >
+      Back
+    </button>
+  </footer>
+</form>

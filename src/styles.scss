@@ -1,1 +1,92 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./styles/variables";
+@import "./styles/utility";
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(
+    181deg,
+    var(--cornflower-blue) 117%,
+    #d0e4e0 8%
+  );
+}
+
+//////////////////////////////////////////////////////////
+// Shared Styles For Angular Material
+
+.mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  background-color: #f2f2f2;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 0;
+  min-height: 49px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+
+.mat-expansion-panel-body {
+  padding: 0 !important;
+}
+
+.mat-chip {
+  font-size: 14px;
+  margin-top: -3px !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-suffix {
+  top: -0.2rem !important;
+}
+
+.mat-checkbox-inner-container {
+  height: 20px !important;
+  width: 20px !important;
+}
+
+.mat-flat-button.mat-button-disabled.mat-button-disabled {
+  background-color: #949494;
+  color: #fff;
+  opacity: 0.6;
+}
+
+textarea.mat-input-element {
+  margin: 4px 0 !important;
+}
+
+/////////////////////////////////////////////////////////////////////
+/// Icons
+
+.clear-icon {
+  height: 22px;
+  width: 22px;
+  fill: #915151;
+  cursor: pointer;
+}
+
+.cal-icon {
+  height: 22px;
+  width: 22px;
+  fill: #949494;
+  cursor: pointer;
+}
+.arrow-icon {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.8rem;
+}

@@ -1,0 +1,8 @@
+@mixin template-container {
+  background-color: $color-bg-light;
+  padding: 20px;
+  border-radius: 3px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}

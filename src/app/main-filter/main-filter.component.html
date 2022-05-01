@@ -1,0 +1,77 @@
+<div class="main-filter">
+  <!-- Filter By Date -->
+  <div class="main-filter__item">
+    <label for="date">Date</label>
+    <mat-form-field appearance="outline">
+      <input
+        name="date"
+        matInput
+        [matDatepicker]="picker"
+        [(ngModel)]="filterDate"
+        (dateChange)="filterToDosList()"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker">
+        <svg class="cal-icon" matDatepickerToggleIcon>
+          <use xlink:href="assets/icons/sprite.svg#icon-calendar"></use>
+        </svg>
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <!-- Filter By Title -->
+  <div class="main-filter__item">
+    <label for="title">Title</label>
+    <mat-form-field appearance="outline">
+      <input
+        name="title"
+        matInput
+        [(ngModel)]="searchText"
+        (input)="filterToDosList()"
+      />
+    </mat-form-field>
+  </div>
+
+  <!-- Filter By Group  -->
+  <div class="main-filter__item main-filter__item--group">
+    <label for="group">Group</label>
+    <mat-form-field appearance="outline">
+      <mat-chip-list #chipList aria-label="Fruit selection">
+        <mat-chip
+          selectable="true"
+          removable="true"
+          *ngFor="let group of filterGroups"
+          (removed)="remove(group)"
+        >
+          {{ group }}
+          &nbsp;
+          <svg class="clear-icon" matChipRemove>
+            <use
+              xlink:href="assets/icons/sprite.svg#icon-highlight_remove"
+            ></use>
+          </svg>
+        </mat-chip>
+        <input
+          name="group"
+          #groupInput
+          [matAutocomplete]="auto"
+          [matChipInputFor]="chipList"
+          (input)="lookupGroup($event)"
+        />
+        <img
+          class="arrow-icon"
+          matSuffix
+          src="assets/icons/arrow-point-to-right.svg"
+        />
+      </mat-chip-list>
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        (optionSelected)="selected($event)"
+      >
+        <mat-option *ngFor="let group of getGroups()" [value]="group">
+          {{ group }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+</div>
